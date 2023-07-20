@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://github.com/Luqman-Noor-Buat/kk/blob/main/ikon.png?raw=true" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>SIDATA | Modelling Data</title>
+    <style>
+      .input-color {
+        background-color: whitesmoke;
+      }
+    </style>
+  </head>
+  <body>
+    <!--<h1>Lagi Belajar Bootstrap!</h1>-->
+    <nav class="navbar container-fluid sticky-top navbar-expand-sm bg-primary navbar-dark">
+      <a class="navbar-brand" href="{{ url_for('index') }}"><img src="https://github.com/Luqman-Noor-Buat/kk/blob/main/ikon.png?raw=true" alt="" style="height: 40px" /><strong>SIDATA</strong></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#colNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="colNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('about') }}">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('dataset') }}">Dataset</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('preprocessing') }}">Preprocessing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{{ url_for('modelling') }}">Modelling</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('prediksi') }}">Klasifikasi</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="container mt-3">
+        <h3>Modelling Data</h3>
+        <p>Silahkan pilih modelling data dibawah ini:</p>
+        <form action="" method="post">
+          <div class="form-floating mb-3 mt-3">
+            <select class="form-select form-control input-color" aria-label="Default select example" id="modelling" name="modelling" required>
+              <option value="1">K-Nearest Neighbor (KNN)</option>
+            </select>
+            <label for="modelling">Modelling Data</label>
+          </div>
+          <div class="form-floating mb-3 mt-3">
+            <input type="number" class="form-control input-color" id="nilai_k" placeholder="Masukkan nilai K" name="nilai_k" value="{{ nilai_k }}" required />
+            <label for="nilai_k">Nilai K</label>
+          </div>
+          <button type="submit" class="btn btn-primary" name="submit">Tampilkan</button>
+        </form>
+      </div>
+      {% if cek == 1 %}
+      <div class="container mt-5">
+        <h3>Preview Data</h3>
+        <p>{{ akurasi }}</p>
+      </div>
+      {% endif %}
+    </div>
+
+    <!--Bagian Bawah-->
+    <footer class="bg-primary text-center text-lg-start fixed-bottom">
+      <div class="text-center p-3 text-white" style="background-color: rgba(0, 0, 0, 0.2)">
+        © 2022 Copyright By
+        <a class="text-white" href="https://github.com/Luqman-Noor-Buat/kk">Kelompok 7</a>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </body>
+</html>
